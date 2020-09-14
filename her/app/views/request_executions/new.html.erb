@@ -1,0 +1,6 @@
+<%= form_with model: @request_execution, url: request_executions_path, local: true  do |form| %>
+  <%= form.text_area :content %><br>
+  <%= form.file_field :image %><br>
+  <%= form.submit %>
+<% end %>
+
