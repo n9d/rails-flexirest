@@ -1,6 +1,5 @@
-<%= form_with model: @request_execution, url: request_executions_path, local: true  do |form| %>
-  <%= form.text_area :content %><br>
+<%= form_with model: @request_execution, local: true  do |form| %>
+  <%= form.text_area :request_id %><br>
   <%= form.file_field :image %><br>
   <%= form.submit %>
 <% end %>
-

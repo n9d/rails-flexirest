@@ -1,4 +1,6 @@
-class RequestExecutionsController < ApplicationController
+class RequestExecController < ApplicationController
+  protect_from_forgery :except => [:request_id,:image]
+
   def new
     @request_execution = RequestExecution.new
   end
@@ -9,6 +11,9 @@ class RequestExecutionsController < ApplicationController
   end
 
   def show
-    @request_execution = RequestExecution.find(params[:id])
+    a = RequestExecution.find(params[:id])
+    b = JSON.parse(a.to_json)
+    b[:image_url] = url_for(a.image)
+    render json: b
   end
 end
